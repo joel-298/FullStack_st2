@@ -85,39 +85,12 @@ const Home = () => {
               </svg>
             </div>
           </div>
-    
-          <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 md:justify-between lg:justify-between overflow-x-auto px-4 sm:px-6 md:px-10 py-6 sm:py-8 md:py-10 bg-gray-100'>
-            <div className='bg-indigo-50 p-4 md:p-6 lg:p-8 flex flex-col items-center rounded-2xl shrink-0 shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-1/2 md:w-1/4'>
-              <svg className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-              <span className="mt-3 md:mt-4 font-medium text-indigo-800 text-center">Super Fast Delivery</span>
-            </div>
-            <div className='bg-indigo-50 p-4 md:p-6 lg:p-8 flex flex-col items-center rounded-2xl shrink-0 shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-1/2 md:w-1/4'>
-              <svg className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
-              </svg>
-              <span className="mt-3 md:mt-4 font-medium text-indigo-800 text-center">Free shipping on</span>
-              <span className="font-medium text-indigo-800 text-center">orders over $50</span>
-            </div>
-            <div className='bg-indigo-50 p-4 md:p-6 lg:p-8 flex flex-col items-center rounded-2xl shrink-0 shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-1/2 md:w-1/4'>
-              <svg className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              <span className="mt-3 md:mt-4 font-medium text-indigo-800 text-center">Low prices guaranteed</span>
-            </div>
-            <div className='bg-indigo-50 p-4 md:p-6 lg:p-8 flex flex-col items-center rounded-2xl shrink-0 shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-1/2 md:w-1/4'>
-              <svg className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              <span className="mt-3 md:mt-4 font-medium text-indigo-800 text-center">Available to you 24/7</span>
-            </div>
-          </div>
+
     
           <div className='my-4 md:my-8 bg-gray-50 py-6 md:py-8'>
             <h1 className='w-full flex justify-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-indigo-800 px-4 text-center'>Best Sellers</h1>
             <div className='w-full overflow-x-auto flex gap-4 sm:gap-6 px-4 sm:px-6 md:px-10 mt-6 md:mt-8'>
-              {product && product.map((data,index)=>{
+              {product && product.slice(0, 4).map((data,index)=>{
                 return <div key={index} className='border border-gray-200 my-3 rounded-3xl flex flex-col items-center w-full py-4 md:py-6 cursor-pointer md:w-1/3 lg:w-1/3 shrink-0 bg-white hover:shadow-xl transition-shadow duration-300 px-4' onClick={()=>{handleSelect(data)}}>
                     <div className="w-full flex justify-center">
                       <img className='w-3/4 sm:w-2/3 md:w-2/4 h-auto object-contain' src={data.images[0]} alt={data.name} />

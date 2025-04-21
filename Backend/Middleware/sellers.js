@@ -1,8 +1,9 @@
 const express = require("express");
 const products = express();
-
 const db = require("../connection.js")
 
+
+// GET ALL PRODUCTS 
 products.get("/",(req,res)=>{
     db.query('SELECT * FROM products',(error,results)=>{
         if(error){
@@ -18,25 +19,12 @@ products.get("/",(req,res)=>{
     })
 })
 
-products.get("/front",(req,res)=>{
-    db.query('SELECT * FROM products WHERE front = ?',[true],(error,response)=>{
-        if(error){
-            return res.status(500).send({message:"Products Not Found ❌",error});
-        }
-
-        const formattedResults = response.map(product => ({
-            ...product,
-            images: JSON.parse(product.images)
-        }));
-
-        res.send(formattedResults);
-    })
-})
-
-products.post("/",(req,res)=>{
-    const {user_id,name,company,images,quantity,price,category,description,rating,reviews} = req.body
+// adding product !
+products.post("/add",(req,res)=>{
+    const {name,company,images,quantity,price,category,description} = req.body
+    console.log(req.body) ; 
     
-    db.query('INSERT INTO products (user_id,name,company,images,qty,price,category,description,rating,reviews) VALUES (?,?,?,?,?,?,?,?,?,?)', [user_id,name,company,images,quantity,price,category,description,rating,reviews],(error)=>{
+    db.query('INSERT INTO products (name,company,images,qty,price,category,description) VALUES (?,?,?,?,?,?,?)', [name,company,images,quantity,price,category,description],(error)=>{
         if(error){
             return res.status(500).send({message:"Product Not Added ❌",error});
         }
@@ -45,6 +33,50 @@ products.post("/",(req,res)=>{
     })
 })
 
+// Delete Product 
+products.delete("/delete/:id", (req, res) => {
+    const { id } = req.params;
+
+    db.query("DELETE FROM products WHERE id = ?", [id], (error) => {
+        if (error) {
+            return res.status(500).send({ boolean: false, message: "Product was not deleted ❌" });
+        }
+
+        res.status(200).send({ boolean: true, message: "Product deleted successfully! ✅" });
+    });
+});
+
+// Edit Product
+products.patch("/edit/:id", (req, res) => {
+    const { id } = req.params;
+    const { name, images, qty, price, category, description } = req.body;
+
+    const sql = `
+        UPDATE products 
+        SET 
+            name = ? ,
+            images = ? ,
+            qty = ? ,
+            price = ? ,
+            category = ? ,
+            description = ?
+        WHERE id = ?
+    `;
+
+
+    // in frontend : User will see all the images and edit or delete one or two therefore images will always keep on updating 
+    db.query(sql, [name, images, qty, price, category, description, id], (error) => {
+        if (error) {
+            console.log(error);
+            return res.status(500).send({ boolean: false, message: "Unable to edit product! ❌" });
+        }
+        res.status(200).send({ boolean: true, message: "Product updated successfully! ✅" });
+    });
+});
+
+
+
+// FILTER FUNCTIONS !
 products.get("/mobile",(req,res)=>{
     db.query('SELECT * FROM products WHERE category = ?',["mobile"],(error,results)=>{
         if(error){

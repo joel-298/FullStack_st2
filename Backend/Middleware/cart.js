@@ -1,6 +1,5 @@
 const express = require("express")
 const cart = express();
-
 const db = require("../connection.js")
 
 cart.get("/items/:user_id", (req, res) => {

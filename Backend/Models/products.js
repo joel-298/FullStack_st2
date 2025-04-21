@@ -9,7 +9,7 @@ db.query(`
       qty INT NOT NULL,
       price VARCHAR(100),
       category VARCHAR(100),
-      decription TEXT
+      description TEXT
     )`, (error) => {
     if (error) {
         console.error("Table creation failed ❌", error);
