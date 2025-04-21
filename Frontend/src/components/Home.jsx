@@ -19,7 +19,7 @@ const Home = () => {
   const [product, setproduct] = useState([])
 
   const getProducts = async()=>{
-    await axios.get("http://localhost:3000/products/front")
+    await axios.get("http://localhost:3000/products/")
     .then((response)=>{
       setproduct(response.data);
     })

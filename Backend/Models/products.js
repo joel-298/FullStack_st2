@@ -3,18 +3,13 @@ const db = require("../connection");
 db.query(`
     CREATE TABLE IF NOT EXISTS products (
       id INT PRIMARY KEY AUTO_INCREMENT,
-      user_id INT,
       name VARCHAR(100),
       company VARCHAR(100),
       images TEXT NOT NULL,
       qty INT NOT NULL,
       price VARCHAR(100),
       category VARCHAR(100),
-      decription TEXT,
-      rating VARCHAR(50),
-      reviews VARCHAR(50),
-      front BOOLEAN DEFAULT FALSE,
-      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+      decription TEXT
     )`, (error) => {
     if (error) {
         console.error("Table creation failed ❌", error);
