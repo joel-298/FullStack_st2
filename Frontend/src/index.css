@@ -1,0 +1,11 @@
+.style{
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+    height: 0;
+    width: 0;
+    scroll-behavior: smooth
+}
+@import "tailwindcss";
