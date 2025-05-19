@@ -38,7 +38,12 @@ const Login = () => {
           localStorage.setItem("userInfo", JSON.stringify(response.data))
           setTimeout(() => {
             setuser(response.data);
-            navigate("/")
+            if(response.data.role == "admin") {
+              navigate("/seller") ; 
+            }
+            else{ 
+              navigate("/");
+            }
           }, 3000);
         }
       })

@@ -11,6 +11,9 @@ import Cart from './components/Cart'
 import Footer from './components/Footer'
 import About from './components/About'
 import ErrorPage from './components/ErrorPage'
+import Seller from './components/Seller'
+import SellerAddProduct from './components/SellerAddProduct'
+import SellerEditProduct from './components/SellerEditProduct'
 
 function App() {
   
@@ -23,10 +26,14 @@ function App() {
         <Route path='/products' element = {<Products/>}></Route>
         <Route path='/contact' element = {<Contact/>}></Route>
         <Route path='/singleproduct' element = {<SingleProduct/>}></Route>
-        <Route path='/cart' element = {<Cart/>}></Route>
         <Route path='/footer' element={<Footer/>}></Route>
         <Route path='/about' element={<About/>}></Route>
         <Route path='*' element={<ErrorPage/>}></Route>
+
+        <Route path='/cart' element = {<Cart/>}></Route>
+        <Route path='/seller' element ={<Seller/>}></Route>
+        <Route path='/seller/add' element ={<SellerAddProduct/>}></Route>
+        <Route path='/seller/edit/:id' element ={<SellerEditProduct/>}></Route>
       </Routes>
     </>
   )

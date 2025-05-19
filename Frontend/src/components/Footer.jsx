@@ -6,7 +6,7 @@ const Footer = () => {
       <div className='w-5/6 block  md:flex lg:flex justify-between gap-20'>
         <div className='w-full md:w-2/6 lg:w-2/6 flex flex-col items-center px-4 mt-10 md:mt-0 lg:mt-0'>
           <h1 className='text-2xl font-medium mb-3'>
-            Shop Sphere
+            Apple
           </h1>
           <p className='text-gray-600 font-extralight'>Phoenix Marketcity, 207, Nagar Rd, Clover Park, Viman Nagar, Pune, Maharashtra 411014</p>
           <span className='w-full font-extralight'>123-456-7890</span>

@@ -23,7 +23,6 @@ app.use("/search",search)
 app.use("/contact_us",contact_us) ; 
 
 
-
 app.get("/",(req,res)=>{
     res.send("Hello");
 })

@@ -9,7 +9,7 @@ const About = () => {
     return (
 <div className='flex flex-col items-center bg-gray-50 min-h-screen py-8 md:py-12'>
   <h1 className='text-3xl md:text-5xl lg:text-5xl font-medium text-indigo-800 my-6'>
-    About Shop Sphere
+    About Apple
   </h1>
 
   <div className='w-5/6 border-b-2 border-indigo-200 my-5'></div>
@@ -19,13 +19,13 @@ const About = () => {
     <img 
         className='w-full h-auto object-cover' 
         src="https://img.freepik.com/free-vector/brainstorming-concept-landing-page_52683-26979.jpg?t=st=1745239938~exp=1745243538~hmac=c6b257c3777005eedcaf30b488b8791e14c8b914dd5819ba59f01d5a4b870549&w=826" 
-        alt="About Shop Sphere" 
+        alt="About Apple" 
         />
     </div>
     
     <div className='mt-8 lg:mt-0 bg-white p-6 md:p-8 rounded-2xl shadow-md w-full lg:w-1/2'>
       <p className='text-lg md:text-xl text-gray-600 leading-relaxed'>
-        Shop Sphere is your destination for incredible prices on all your favorite items. We believe in making quality products accessible to everyone through competitive pricing and exceptional service.
+        Apple is your destination for incredible prices on all your favorite items. We believe in making quality products accessible to everyone through competitive pricing and exceptional service.
       </p>
       
       <p className='text-lg md:text-xl text-gray-600 leading-relaxed mt-4'>

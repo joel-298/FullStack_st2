@@ -3,6 +3,28 @@ const products = express();
 const db = require("../connection.js")
 
 
+
+products.get("/:id", (req, res) => {
+  const { id } = req.params;
+
+  const sql = `SELECT * FROM products WHERE id = ?`;
+
+  db.query(sql, [id], (error, results) => {
+    if (error) {
+      console.error("DB error fetching product:", error);
+      return res.status(500).send({ success: false, message: "Failed to fetch product details" });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send({ success: false, message: "Product not found" });
+    }
+
+    // Send back the single product object
+    res.status(200).send(results[0]);
+  });
+});
+
+
 // GET ALL PRODUCTS 
 products.get("/",(req,res)=>{
     db.query('SELECT * FROM products',(error,results)=>{

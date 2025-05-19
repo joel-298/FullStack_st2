@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { ProductState } from '../context/ProductProvider';
 
-const Navbar = () => {
+const   SellerNavbar = () => {
     const { user,setuser, cartCount, setcartCount,setselectedProduct } = ProductState()
     const navigate = useNavigate();
     const [search, setsearch] = useState("")
@@ -47,7 +47,7 @@ const Navbar = () => {
     const handleLogout = ()=>{
         localStorage.removeItem("userInfo");
         setuser(undefined);
-        window.location.reload();
+        navigate("/") ;
     }
 
 
@@ -69,7 +69,7 @@ const Navbar = () => {
     return (
 <div className='bg-indigo-50'>
   <div className='py-4 px-3 md:px-8 lg:px-8 flex justify-between items-center w-full'>
-    <h1 className='text-xl md:text-4xl lg:text-4xl font-semibold w-fit cursor-pointer text-indigo-700' onClick={() => { navigate("/") }}>Apple</h1>
+    <h1 className='text-xl md:text-4xl lg:text-4xl font-semibold w-fit cursor-pointer text-indigo-700' onClick={() => { navigate("/seller") }}>Apple</h1>
 
     <div className='w-full md:w-2/5 lg:w-2/5 relative flex items-center'>
       <input value={search} className='w-full h-12 bg-indigo-100 rounded-full outline-none text-xl px-5 placeholder:text-xl text-indigo-800 placeholder-indigo-500' placeholder='Search Product....' type="search" onChange={handleSearch} />
@@ -89,10 +89,7 @@ const Navbar = () => {
         </div>
       )}
 
-      <div className='relative flex w-fit'>
-        <img className='cursor-pointer' onClick={handleCart} src="cart.svg" alt="" />
-        <span className='absolute -right-4 -top-2 bg-indigo-300 rounded-full px-2 text-indigo-900 font-semibold'>{cartCount}</span>
-      </div>
+      
     </div>
   </div>
 
@@ -131,4 +128,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default SellerNavbar
