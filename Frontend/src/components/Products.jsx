@@ -17,34 +17,34 @@ const Products = () => {
       })
   }
 
-  const handleFilter = async()=>{
+  const handleFilter = ()=>{
     if(selectFilter === "All Products"){
       getProducts();
     }
 
     if(selectFilter === "Mobile"){
-      await axios.get("http://localhost:3000/products/mobile")
+       axios.get("http://localhost:3000/products/mobile")
       .then((response)=>{
         setfilteredProducts(response.data);
       })
     }
 
     if(selectFilter === "Laptop"){
-      await axios.get("http://localhost:3000/products/laptop")
+      axios.get("http://localhost:3000/products/laptop")
       .then((response)=>{
         setfilteredProducts(response.data);
       })
     }
 
     if(selectFilter === "Watch"){
-      await axios.get("http://localhost:3000/products/watch")
+       axios.get("http://localhost:3000/products/watch")
       .then((response)=>{
         setfilteredProducts(response.data);
       })
     }
 
     if(selectFilter === "Accessories"){
-      await axios.get("http://localhost:3000/products/accessories")
+       axios.get("http://localhost:3000/products/accessories")
       .then((response)=>{
         setfilteredProducts(response.data);
       })
